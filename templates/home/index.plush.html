@@ -241,9 +241,6 @@
             <button type="button" class="upload-button" onclick="document.getElementById('fileInput').click()">
                 Choose File
             </button>
-            <button type="submit" class="upload-button" id="submitButton" style="display: none; margin-left: 1rem; background: linear-gradient(45deg, #48dbfb, #ff9ff3);">
-                🚀 Process Menu
-            </button>
             </div>
             
                     <div class="file-info" id="fileInfo">
@@ -257,7 +254,7 @@
             </div>
             <div class="file-info-item">
                 <span class="file-info-label">✅ Status:</span>
-                <span class="file-info-value">Ready to Process</span>
+                <span class="file-info-value">Uploading...</span>
             </div>
         </div>
             
@@ -334,21 +331,16 @@
             return;
         }
 
-        // Display file info and show submit button
+        // Display file info
         fileName.textContent = file.name;
         fileSize.textContent = formatFileSize(file.size);
         fileInfo.style.display = 'block';
-        
-        // Show the process button
-        const submitButton = document.getElementById('submitButton');
-        submitButton.style.display = 'inline-block';
-        
-        // Add submit handler
-        submitButton.onclick = function() {
+
+        // Auto-submit the form after a short delay
+        setTimeout(() => {
             processing.style.display = 'block';
-            submitButton.style.display = 'none';
             uploadForm.submit();
-        };
+        }, 1000);
     }
 
         function formatFileSize(bytes) {
