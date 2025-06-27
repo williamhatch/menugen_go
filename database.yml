@@ -1,0 +1,12 @@
+---
+development:
+  dialect: "sqlite3"
+  database: /Users/test/work/menugen_go/menugen_menugen_development.sqlite
+
+test:
+  dialect: "sqlite3"
+  database: /Users/test/work/menugen_go/menugen_menugen_test.sqlite
+
+production:
+  dialect: "sqlite3"
+  database: /Users/test/work/menugen_go/menugen_menugen_production.sqlite
